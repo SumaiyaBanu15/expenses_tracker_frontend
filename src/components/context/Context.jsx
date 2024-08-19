@@ -17,11 +17,12 @@ const Context = ({ children }) => {
 };
 const getIncome = async () => {
     try {
-        const res = await AxiosService.get(`income/getallincome`)
-        const data = res.data;
+        const res = await AxiosService.get(`income/getallincome`);
+        const data = res.data.allIncome;
         setIncome(Array.isArray(data) ? data : []);
     } catch (error) {
-        setError(error.response.data.message); 
+        // console.error("Error is", error)
+        setError(error.response?.data?.message); 
     }
 }
 

@@ -12,7 +12,7 @@ export const categories = <i className="fa-solid fa-tags"></i>
 
 export const accounts = <i className="fa-solid fa-wallet"></i>
 
-export const calender = <i className="fa-solid fa-calender"></i>
+export const calender = <i className="fa-solid fa-calendar"></i>
 
 export const logout = <i className="fa-solid fa-right-from-bracket"></i>
 

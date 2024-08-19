@@ -1,0 +1,11 @@
+.main-container{
+    display: flex;
+    overflow: auto;
+}
+.income-container{
+    display: flex;
+    gap: 2rem;
+}
+.incomes{
+    flex: 1;
+}

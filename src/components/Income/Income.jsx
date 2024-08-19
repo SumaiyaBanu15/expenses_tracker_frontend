@@ -9,10 +9,18 @@ function Income() {
   const { getIncome, income } = useGlobalContext();
 
   useEffect(()=>{
-  getIncome()
-  },[income])
+  getIncome().then(() => {
+    console.log(income);
+  })
+  },[])
+
+  // useEffect(() => {
+  //   console.log(income);
+  // }, [income]);
+
   return (
     <>
+    <div className="main-container">
       <div className="income-container">
         <div className="form-container">
           <IncomeForm />
@@ -37,6 +45,7 @@ function Income() {
         )}
         </div>
       </div>
+    </div>
       {/* {addIncome} */}
       {/* {getIncome}   */}
     

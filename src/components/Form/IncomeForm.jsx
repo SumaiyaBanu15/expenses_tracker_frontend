@@ -70,6 +70,18 @@ function IncomeForm() {
             />
           </div>
           <div className="input-control">
+            <DatePicker
+              id="date"
+              placeholderText="Enter a Date"
+              selected={date}
+              dateFormat="dd/MM/yyyy"
+              onChange={(date) => {
+                setInputState({ ...inputState, date: date });
+              }}
+              required
+            />
+          </div>
+          <div className="input-control">
             <select
               required
               value={category}
@@ -88,18 +100,6 @@ function IncomeForm() {
               <option value="YouTube">YouTube</option>
               <option value="Other">Other</option>
             </select>
-          </div>
-          <div className="input-control">
-            <DatePicker
-              id="date"
-              placeholderText="Enter a Date"
-              selected={date}
-              dateFormat="dd/MM/yyyy"
-              onChange={(date) => {
-                setInputState({ ...inputState, date: date });
-              }}
-              required
-            />
           </div>
           <div className="input-control">
             <textarea
