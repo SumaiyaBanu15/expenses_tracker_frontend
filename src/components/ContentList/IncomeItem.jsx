@@ -1,6 +1,7 @@
 import React from "react";
 import "./contentstyle.css";
 import { calender, dollar, trash } from "../../utilis/icons";
+import { dateFormat } from "../../utilis/DateFormat";
 // import { Button } from "react-bootstrap";
 
 function IncomeItem({
@@ -11,13 +12,14 @@ function IncomeItem({
   category,
   description,
   deleteItem,
+  type,
   // indicatorColor,
-  // type,
+
 }) {
   // console.log({ id, title, amount, date, category, description});
 
   // Format the date to display only the data part
-  const formatedDate = new Date(date).toISOString().split('T')[0];
+  // const formatedDate = new Date(date).toISOString().split('T')[0];
 
   return (
     <>
@@ -30,7 +32,7 @@ function IncomeItem({
         <div className="inner-content">
           <div className="text">
             <p>{dollar} {amount}</p>
-            <p>{calender} {formatedDate}</p>
+            <p>{calender} {dateFormat(date)}</p>
             {/* <p>
               {comment}
               {description}

@@ -43,6 +43,16 @@ const deleteIncome = async (id) => {
     
 }
 
+const totalIncome = () => {
+    let totalIncome = 0;
+    income.forEach((income) => {
+        totalIncome = totalIncome + income.amount
+    })
+
+    return totalIncome;
+}
+console.log(totalIncome());
+
 // Expenses
 const addExpenses = async (expenses) => {
     try {
@@ -76,6 +86,16 @@ const deleteExpenses = async (id) => {
     }
 }
 
+const totalExpenses = () => {
+    let totalExpense = 0;
+    expenses.forEach((expenses) => {
+        totalExpense = totalExpense + expenses.amount
+    })
+
+    return totalExpense;
+}
+console.log(totalExpenses());
+
   return <DataContext.Provider value={{
     expenses,
     setExpenses,
@@ -85,9 +105,11 @@ const deleteExpenses = async (id) => {
     addIncome,
     getIncome,
     deleteIncome,
+    totalIncome,
     addExpenses,
     getExpenses,
-    deleteExpenses
+    deleteExpenses,
+    totalExpenses
 
     }}>
         {children}

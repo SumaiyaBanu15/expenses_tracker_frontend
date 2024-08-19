@@ -50,6 +50,6 @@ button{
     border: 3px solid var(--white);
     backdrop-filter: blur(4.5px);
     border-radius: 32px;
-    overflow: auto;
+    /* overflow: auto; */
     overflow-x: hidden;
 }
