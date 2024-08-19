@@ -4,7 +4,7 @@ import AxiosService from '../utilis/ApiService';
 import { toast } from 'react-toastify';
 import Form  from 'react-bootstrap/Form';
 import Button  from 'react-bootstrap/Button';
-import "../components/style.css"
+import "./style.css"
 import logo from '../../src/assets/Images/logo.jpeg';
 
 function SignIn() {
@@ -86,7 +86,7 @@ function SignIn() {
     <Form.Group className='mb-3'>
         <Form.Label className='label-text'>Email Address</Form.Label>
         <Form.Control type="email"
-        placeholder='Enter Your Email Address'
+        placeholder='Enter Your Email...'
         value={email}
         onChange={(e)=> setEmail(e.target.value)} required/>
       </Form.Group>
@@ -95,7 +95,7 @@ function SignIn() {
       <Form.Group className='mb-3'>
         <Form.Label className='label-text'>Password</Form.Label>
        <Form.Control type="password"
-        placeholder='Enter Your Password'
+        placeholder='Enter Your Password...'
         value={password}
         onChange={(e)=> setPassword(e.target.value)} required/>
       </Form.Group>

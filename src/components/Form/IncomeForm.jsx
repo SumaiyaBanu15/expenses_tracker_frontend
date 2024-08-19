@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./formstyle.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from "../context/Context";
 import Form from "react-bootstrap/Form";
+import { toast } from "react-toastify";
 
 function IncomeForm() {
   const { addIncome } = useGlobalContext();
@@ -22,9 +23,27 @@ function IncomeForm() {
     setInputState({ ...inputState, [name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addIncome(inputState);
+
+    const incomeData = {
+      ...inputState,
+      amount: parseFloat(amount), //Conert amount to number
+    }
+
+    try {
+      await addIncome(incomeData);
+      toast.success("Income added Successfully");
+       setInputState({
+        title: '',
+        amount: '',
+        category: '',
+        date: null,
+        description: ''
+       }); //Reset the form after submission
+    } catch (error) {
+      toast.error("Failed to add Income, Please try again!")
+    }
   };
   return (
     <>
@@ -37,15 +56,17 @@ function IncomeForm() {
               name={"title"}
               placeholder="Enter Title"
               onChange={handleInput("title")}
+              required
             />
           </div>
           <div className="input-control">
             <input
-              type="text"
+              type="number"
               value={amount}
               name={"amount"}
               placeholder="Enter Amount"
               onChange={handleInput("amount")}
+              required
             />
           </div>
           <div className="input-control">
@@ -77,6 +98,7 @@ function IncomeForm() {
               onChange={(date) => {
                 setInputState({ ...inputState, date: date });
               }}
+              required
             />
           </div>
           <div className="input-control">
@@ -86,6 +108,7 @@ function IncomeForm() {
               value={description}
               name={"description"}
               onChange={handleInput("description")}
+              required
             ></textarea>
           </div>
           <div className="btn">

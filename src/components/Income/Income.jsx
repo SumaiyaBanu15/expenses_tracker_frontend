@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import './style.css';
+import './incomestyle.css';
 import { useGlobalContext } from '../context/Context';
 import IncomeForm from '../Form/IncomeForm';
+import IncomeItem from '../ContentList/IncomeItem';
 
 function Income() {
 
@@ -15,6 +16,25 @@ function Income() {
       <div className="income-container">
         <div className="form-container">
           <IncomeForm />
+        </div>
+        <div className="incomes">
+
+          {Array.isArray(income) ? (income.map((income) => {
+            const {_id, title, amount, date, category, description } = income;
+            return  <IncomeItem 
+            key={_id}
+            id={_id}
+            title={title}
+            amount={amount}
+            date={date}
+            category={category}
+            description={description}
+            indicatorColor="var(--green)"
+            />
+          })
+        ) : (
+          <p> No Income data available</p>
+        )}
         </div>
       </div>
       {/* {addIncome} */}

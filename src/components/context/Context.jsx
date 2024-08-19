@@ -18,7 +18,8 @@ const Context = ({ children }) => {
 const getIncome = async () => {
     try {
         const res = await AxiosService.get(`income/getallincome`)
-        setIncome(res.data);
+        const data = res.data;
+        setIncome(Array.isArray(data) ? data : []);
     } catch (error) {
         setError(error.response.data.message); 
     }

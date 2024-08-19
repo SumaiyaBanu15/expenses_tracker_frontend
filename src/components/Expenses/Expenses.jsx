@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css';
+import './expensestyle.css';
 import ExpensesForm from '../Form/ExpensesForm';
 
 function Expenses() {

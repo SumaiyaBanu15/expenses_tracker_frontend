@@ -21,3 +21,5 @@ export const trash = <i className="fa-solid fa-trash"></i>
 export const plus = <i className="fa-solid fa-plus"></i>
 
 export const dollar = <i className="fa-solid fa-dollar-sign"></i>
+
+export const comment = <i className="fa-solid fa-comment"></i>

@@ -4,7 +4,7 @@ import AxiosService from '../utilis/ApiService';
 import { toast } from 'react-toastify';
 import Form from 'react-bootstrap/Form';
 import Button  from 'react-bootstrap/Button';
-import "../components/style.css";
+import "./style.css";
 import logo from '../../src/assets/Images/logo.jpeg'
 
 function SignUp() {

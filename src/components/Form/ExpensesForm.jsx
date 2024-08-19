@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './style.css'
+import './formstyle.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from "../context/Context";

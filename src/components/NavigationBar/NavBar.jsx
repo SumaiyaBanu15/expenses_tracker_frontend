@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import "./styles.css";
+import "./navbarstyles.css";
 import { menuItems } from "../../utilis/MenuItems";
 import { logout } from "../../utilis/icons";
 import logo from "../../assets/Images/logo.jpeg";
