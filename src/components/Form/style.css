@@ -1,6 +1,97 @@
-.selects{
-    width: 190px;
+Form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 1rem;
 }
-.textareas{
-    width: 190px;
+.input-control input,
+.input-control textarea,
+.input-control select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid var(--white);
+  background: transparent;
+  resize: none;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+  color: rgba(34, 34, 96, 0.9);
+}
+.input-control input {
+  width: 100%;
+}
+
+.selects {
+  display: flex;
+  justify-content: flex-end;
+}
+
+select {
+  color: rgba(34, 34, 96, 0.4);
+}
+select:focus,
+select:active {
+  color: rgba(34, 34, 96, 1);
+}
+
+.btn button{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    background-color: var(--theme);
+    color: var(--white);
+    border-radius: 5px;
+    border: 2px solid var(--white);
+}
+.btn button:hover{
+    background: var(--white);
+    color: var(--theme);
+    border: 2px solid var(--theme);
+}
+
+/* Media Queries */
+@media screen and (min-width: 475px) {
+  .input-control input,
+  .input-control textarea,
+  .input-control select {
+    padding: 0.6rem 1.2rem;
+    /* font-size: 1rem; */
+  }
+
+  .input-control input {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  Form {
+    gap: 1rem;
+  }
+  .input-control input,
+  .input-control textarea,
+  .input-control select {
+    padding: 0.8rem 1.5rem;
+    /* font-size: 1.1rem; */
+  }
+
+  .input-control input {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  Form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .input-control input,
+  .input-control textarea,
+  .input-control select {
+    padding: 1rem 2rem;
+    /* font-size: 1.2rem; */
+  }
+
+  .input-control input {
+    width: 100%;
+  }
 }

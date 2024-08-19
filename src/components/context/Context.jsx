@@ -3,21 +3,30 @@ import AxiosService from "../../utilis/ApiService";
 
 const DataContext = React.createContext();
 
-export const Context = ({ children }) => {
+const Context = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
   const [error, setError] = useState(null);
 
   const addIncome = async (income) => {
     try {
-      const response = await AxiosService.post(`income/addincome`, income)
+      await AxiosService.post(`income/addincome`, income)
     } catch (error) {
         setError(error.response.data.message); 
     }
 };
+const getIncome = async () => {
+    try {
+        const res = await AxiosService.get(`income/getallincome`)
+        setIncome(res.data);
+    } catch (error) {
+        setError(error.response.data.message); 
+    }
+}
+
 const addExpenses = async (expenses) => {
     try {
-      const response = await AxiosService.post(`expenses/addexpenses`, expenses)
+      await AxiosService.post(`expenses/addexpenses`, expenses)
     } catch (error) {
         setError(error.response.data.message); 
     }
@@ -30,14 +39,15 @@ const addExpenses = async (expenses) => {
     setIncome,
     error,
     addIncome,
+    getIncome,
     addExpenses
     }}>
         {children}
     </DataContext.Provider>;
 }
 
-// export default Context;
-
 export const useGlobalContext = () => {
     return useContext(DataContext)
 }
+
+export default Context;

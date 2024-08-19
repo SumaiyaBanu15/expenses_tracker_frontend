@@ -28,7 +28,7 @@ function IncomeForm() {
   };
   return (
     <>
-      <div className="container">
+    <div className="container">
         <Form onSubmit={handleSubmit}>
           <div className="input-control">
             <input

@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import HomePage from "../components/HomePage";
-import { Context } from "../components/context/Context";
+import Context  from "../components/context/Context";
 
 function AppRoutes() {
   return (

@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.css';
-// import { useGlobalContext } from '../context/Context';
+import { useGlobalContext } from '../context/Context';
 import IncomeForm from '../Form/IncomeForm';
 
 function Income() {
 
-  // const { addIncome } = useGlobalContext();
+  const { getIncome, income } = useGlobalContext();
+
+  useEffect(()=>{
+  getIncome()
+  },[income])
   return (
     <>
       <div className="income-container">
@@ -14,7 +18,8 @@ function Income() {
         </div>
       </div>
       {/* {addIncome} */}
-      
+      {/* {getIncome}   */}
+    
     </>
   )
 }
