@@ -1,6 +1,6 @@
 import React from "react";
 import "./contentstyle.css";
-import { calender, comment, dollar, trash } from "../../utilis/icons";
+import { calender, dollar, trash } from "../../utilis/icons";
 // import { Button } from "react-bootstrap";
 
 function IncomeItem({
@@ -14,7 +14,7 @@ function IncomeItem({
   // indicatorColor,
   // type,
 }) {
-  console.log({ id, title, amount, date, category, description});
+  // console.log({ id, title, amount, date, category, description});
 
   // Format the date to display only the data part
   const formatedDate = new Date(date).toISOString().split('T')[0];
@@ -22,9 +22,9 @@ function IncomeItem({
   return (
     <>
     <div className="item-container">
-      <div className="list-icon">
+      {/* <div className="list-icon">
 
-      </div>
+      </div> */}
       <div className="content">
         <h5>{title}</h5>
         <div className="inner-content">
@@ -37,7 +37,8 @@ function IncomeItem({
             </p> */}
           </div>
           <div className="btn-container">
-            <button className="deleteBtn">
+            <button className="deleteBtn"
+            onClick={() => deleteItem(id)}>
               {trash} 
             </button>
           </div>

@@ -28,7 +28,7 @@ function IncomeForm() {
 
     const incomeData = {
       ...inputState,
-      amount: parseFloat(amount), //Conert amount to number
+      amount: parseFloat(amount), //Convert amount to number
     }
 
     try {

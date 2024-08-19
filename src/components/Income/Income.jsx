@@ -6,7 +6,7 @@ import IncomeItem from '../ContentList/IncomeItem';
 
 function Income() {
 
-  const { getIncome, income } = useGlobalContext();
+  const { getIncome, income, deleteIncome } = useGlobalContext();
 
   useEffect(()=>{
   getIncome().then(() => {
@@ -38,6 +38,7 @@ function Income() {
             category={category}
             description={description}
             indicatorColor="var(--green)"
+            deleteItem={deleteIncome}
             />
           })
         ) : (

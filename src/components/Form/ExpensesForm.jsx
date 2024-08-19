@@ -4,10 +4,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from "../context/Context";
 import Form from "react-bootstrap/Form";
+import { toast } from "react-toastify";
 
 
 function ExpensesForm() {
     const { addExpenses } = useGlobalContext();
+
     const [inputState, setInputState] = useState({
         title: "",
         amount: "",
@@ -22,9 +24,28 @@ function ExpensesForm() {
         setInputState({ ...inputState, [name]: e.target.value });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        addExpenses(inputState);
+        // addExpenses(inputState);
+        const expenseData = {
+          ...inputState,
+          amount: parseFloat(amount),
+        }
+
+        try {
+          await addExpenses(expenseData);
+      toast.success("Expenses added Successfully");
+       setInputState({
+        title: '',
+        amount: '',
+        category: '',
+        date: null,
+        description: ''
+       }); //Reset the form after submission
+        } catch (error) {
+
+          toast.error("Failed to add Income, Please try again!")
+        }
       };
   return <>
   <div className="container">
@@ -48,6 +69,17 @@ function ExpensesForm() {
             />
           </div>
           <div className="input-control">
+            <DatePicker
+              id="date"
+              placeholderText="Enter a Date"
+              selected={date}
+              dateFormat="dd/MM/yyyy"
+              onChange={(date) => {
+                setInputState({ ...inputState, date: date });
+              }}
+            />
+          </div>
+          <div className="input-control">
             <select
               required
               value={category}
@@ -67,17 +99,7 @@ function ExpensesForm() {
               <option value="Foods & Snackes">Foods & Snackes</option>
             </select>
           </div>
-          <div className="input-control">
-            <DatePicker
-              id="date"
-              placeholderText="Enter a Date"
-              selected={date}
-              dateFormat="dd/MM/yyyy"
-              onChange={(date) => {
-                setInputState({ ...inputState, date: date });
-              }}
-            />
-          </div>
+        
           <div className="input-control">
             <textarea
               className="textareas"

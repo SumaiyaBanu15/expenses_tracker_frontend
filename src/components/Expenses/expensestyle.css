@@ -1,0 +1,11 @@
+.main-container{
+    display: flex;
+    overflow: auto;
+}
+.expenses-container{
+    display: flex;
+    gap: 2rem;
+}
+.expenses{
+    flex: 1;
+}
