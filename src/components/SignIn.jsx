@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Form  from 'react-bootstrap/Form';
 import Button  from 'react-bootstrap/Button';
 import "../components/style.css"
+import logo from '../../src/assets/Images/logo.jpeg';
 
 function SignIn() {
 
@@ -77,7 +78,7 @@ function SignIn() {
 
   return <>
   <div className="container">
-  <img src='/src/assets/Images/logo.jpeg' alt='App Logo' className='logo-img'/>
+  <img src={logo} alt='App Logo' className='logo-img'/>
   <h1 style={{textAlign:"center", color:"var(--theme)"}}>Expenses Tracker</h1>
 
   <Form>
