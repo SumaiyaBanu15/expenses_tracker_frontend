@@ -6,7 +6,8 @@ Project's Title : Expenses Tracker App
 
 => We can able to track our expenses through the chart
 
-=> Backend Source Code :
-=> Backend Deployed URL :
+=> Backend Source Code : https://github.com/SumaiyaBanu15/expenses_tracker_backend
 
-=> Frontend Deployed URL : 
+=> Backend Deployed URL : https://expenses-tracker-backend-gom2.onrender.com
+
+=> Frontend Deployed URL : https://expensestrackerfrontend.netlify.app
