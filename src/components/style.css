@@ -53,3 +53,8 @@ button{
     /* overflow: auto; */
     overflow-x: hidden;
 }
+
+/* Last Page Styles */
+.lastPage{
+    text-align: center;
+}

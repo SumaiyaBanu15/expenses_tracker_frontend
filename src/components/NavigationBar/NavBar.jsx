@@ -4,8 +4,10 @@ import "./navbarstyles.css";
 import { menuItems } from "../../utilis/MenuItems";
 import { logout } from "../../utilis/icons";
 import logo from "../../assets/Images/logo.jpeg";
+import { useNavigate } from "react-router-dom";
 
 function NavBar({ active, setActive }) {
+  let navigate = useNavigate();
   return (
     <>
       <div className="container">
@@ -30,7 +32,7 @@ function NavBar({ active, setActive }) {
           </ul>
 
           <div className="bottom-nav">
-            <li>{logout} Sign Out</li>
+            <li onClick={() => navigate('/last')}>{logout} Sign Out</li>
           </div>
         </div>
       </div>

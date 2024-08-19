@@ -96,6 +96,10 @@ const totalExpenses = () => {
 }
 console.log(totalExpenses());
 
+const totalBalance = () => {
+    return totalIncome() - totalExpenses()
+}
+
   return <DataContext.Provider value={{
     expenses,
     setExpenses,
@@ -109,7 +113,8 @@ console.log(totalExpenses());
     addExpenses,
     getExpenses,
     deleteExpenses,
-    totalExpenses
+    totalExpenses,
+    totalBalance
 
     }}>
         {children}

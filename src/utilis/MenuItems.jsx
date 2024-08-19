@@ -1,5 +1,5 @@
 import React from "react";
-import { dashboard, income, expenses} from './icons';
+import { dashboard, income, expenses, logout} from './icons';
 
 export const menuItems = [
     {
