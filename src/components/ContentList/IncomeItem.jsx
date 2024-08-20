@@ -14,7 +14,6 @@ function IncomeItem({
   deleteItem,
   type,
   // indicatorColor,
-
 }) {
   // console.log({ id, title, amount, date, category, description});
 
@@ -23,57 +22,33 @@ function IncomeItem({
 
   return (
     <>
-    <div className="item-container">
-      {/* <div className="list-icon">
+      <div className="item-container">
+        {/* <div className="list-icon">
 
       </div> */}
-      <div className="content">
-        <h5>{title}</h5>
-        <div className="inner-content">
-          <div className="text">
-            <p>{dollar} {amount}</p>
-            <p>{calender} {dateFormat(date)}</p>
-            {/* <p>
+        <div className="content">
+          <h5>{title}</h5>
+          <div className="inner-content">
+            <div className="text">
+              <p>
+                {dollar} {amount}
+              </p>
+              <p>
+                {calender} {dateFormat(date)}
+              </p>
+              {/* <p>
               {comment}
               {description}
             </p> */}
-          </div>
-          <div className="btn-container">
-            <button className="deleteBtn"
-            onClick={() => deleteItem(id)}>
-              {trash} 
-            </button>
+            </div>
+            <div className="btn-container">
+              <button className="deleteBtn" onClick={() => deleteItem(id)}>
+                {trash}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-
-      {/* <div className="income-item">
-        <div className="income-item-icon">
-
-          </div>
-        <div className="income-item-header">
-          <h5>{title}</h5>
-          <span className="income-item-amount">
-            {dollar} {amount}
-          </span>
-          </div>
-
-          <div className="income-item-details">
-              <p>
-                {calender} {date}
-              </p>
-              <p>
-                {comment}
-                {description}
-              </p>
-             <p> Category: {category}</p>
-           </div>
-            <div className="btn-container">
-              <Button onClick={() => deleteItem(id)}>{trash}</Button>
-            </div> 
-          </div>  */}
     </>
   );
 }

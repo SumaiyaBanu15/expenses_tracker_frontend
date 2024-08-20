@@ -1,32 +1,32 @@
 /* Nunito font - google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
 
-:root{
-    --black: #000;
-    --white: #ffffff;
-    --theme: #e67c00;
-    --green: #64ea11;
+:root {
+  --black: #000;
+  --white: #ffffff;
+  --theme: #e67c00;
+  --green: #64ea11;
 }
 
-*{
-    margin: 0;
+* {
+  margin: 0;
 }
 
-body{
-    margin: 0;
-    padding: 2.5rem;
-    font-family: 'Nunito', sans-serif;
-    /* overflow: hidden; */
+body {
+  margin: 0;
+  padding: 2.5rem;
+  font-family: "Nunito", sans-serif;
+  /* overflow: hidden; */
 }
 
 /* Media Queries */
-@media screen and (min-width:475px){
-    body{
-        padding: 2.5rem;
-    }
+@media screen and (min-width: 475px) {
+  body {
+    padding: 2.5rem;
+  }
 }
-@media screen and (min-width:768px){
-    body{
-        padding: 3rem;
-    }
+@media screen and (min-width: 768px) {
+  body {
+    padding: 3rem;
+  }
 }

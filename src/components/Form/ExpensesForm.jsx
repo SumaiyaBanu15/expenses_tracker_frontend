@@ -1,54 +1,53 @@
-import React, { useState } from 'react'
-import './formstyle.css'
+import React, { useState } from "react";
+import "./formstyle.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from "../context/Context";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
 
-
 function ExpensesForm() {
-    const { addExpenses } = useGlobalContext();
+  const { addExpenses } = useGlobalContext();
 
-    const [inputState, setInputState] = useState({
+  const [inputState, setInputState] = useState({
+    title: "",
+    amount: "",
+    category: "",
+    date: null,
+    description: "",
+  });
+
+  const { title, amount, category, date, description } = inputState;
+
+  const handleInput = (name) => (e) => {
+    setInputState({ ...inputState, [name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // addExpenses(inputState);
+    const expenseData = {
+      ...inputState,
+      amount: parseFloat(amount),
+    };
+
+    try {
+      await addExpenses(expenseData);
+      toast.success("Expenses added Successfully");
+      setInputState({
         title: "",
         amount: "",
         category: "",
         date: null,
         description: "",
-      });
-    
-      const { title, amount, category, date, description } = inputState;
-    
-      const handleInput = (name) => (e) => {
-        setInputState({ ...inputState, [name]: e.target.value });
-      };
-    
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        // addExpenses(inputState);
-        const expenseData = {
-          ...inputState,
-          amount: parseFloat(amount),
-        }
-
-        try {
-          await addExpenses(expenseData);
-      toast.success("Expenses added Successfully");
-       setInputState({
-        title: '',
-        amount: '',
-        category: '',
-        date: null,
-        description: ''
-       }); //Reset the form after submission
-        } catch (error) {
-
-          toast.error("Failed to add Income, Please try again!")
-        }
-      };
-  return <>
-  <div className="container">
+      }); //Reset the form after submission
+    } catch (error) {
+      toast.error("Failed to add Income, Please try again!");
+    }
+  };
+  return (
+    <>
+      <div className="container">
         <Form onSubmit={handleSubmit}>
           <div className="input-control">
             <input
@@ -85,8 +84,7 @@ function ExpensesForm() {
               value={category}
               name="category"
               id="category"
-              onChange={handleInput("category")
-              }
+              onChange={handleInput("category")}
               className="selects"
             >
               <option value="" disabled>
@@ -99,7 +97,7 @@ function ExpensesForm() {
               <option value="Foods & Snackes">Foods & Snackes</option>
             </select>
           </div>
-        
+
           <div className="input-control">
             <textarea
               className="textareas"
@@ -114,7 +112,8 @@ function ExpensesForm() {
           </div>
         </Form>
       </div>
-      </>
+    </>
+  );
 }
 
-export default ExpensesForm
+export default ExpensesForm;

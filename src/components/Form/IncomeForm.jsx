@@ -29,25 +29,25 @@ function IncomeForm() {
     const incomeData = {
       ...inputState,
       amount: parseFloat(amount), //Convert amount to number
-    }
+    };
 
     try {
       await addIncome(incomeData);
       toast.success("Income added Successfully");
-       setInputState({
-        title: '',
-        amount: '',
-        category: '',
+      setInputState({
+        title: "",
+        amount: "",
+        category: "",
         date: null,
-        description: ''
-       }); //Reset the form after submission
+        description: "",
+      }); //Reset the form after submission
     } catch (error) {
-      toast.error("Failed to add Income, Please try again!")
+      toast.error("Failed to add Income, Please try again!");
     }
   };
   return (
     <>
-    <div className="container">
+      <div className="container">
         <Form onSubmit={handleSubmit}>
           <div className="input-control">
             <input
@@ -87,8 +87,7 @@ function IncomeForm() {
               value={category}
               name="category"
               id="category"
-              onChange={handleInput("category")
-              }
+              onChange={handleInput("category")}
               className="selects"
             >
               <option value="" disabled>

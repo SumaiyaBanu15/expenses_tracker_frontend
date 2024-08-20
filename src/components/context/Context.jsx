@@ -9,120 +9,122 @@ const Context = ({ children }) => {
   const [income, setIncome] = useState([]);
   const [error, setError] = useState(null);
 
-//   Income
+  //   Income
   const addIncome = async (income) => {
     try {
-      await AxiosService.post(`income/addincome`, income)
-    //   toast.success("Income added Successfully")
+      await AxiosService.post(`income/addincome`, income);
+      //   toast.success("Income added Successfully")
     } catch (error) {
-        setError(error.response.data.message); 
-        toast.error("Failed to add income")
+      setError(error.response.data.message);
+      toast.error("Failed to add income");
     }
-};
-const getIncome = async () => {
+  };
+  const getIncome = async () => {
     try {
-        const res = await AxiosService.get(`income/getallincome`);
-        const data = res.data.allIncome;
-        setIncome(Array.isArray(data) ? data : []);
+      const res = await AxiosService.get(`income/getallincome`);
+      const data = res.data.allIncome;
+      setIncome(Array.isArray(data) ? data : []);
     } catch (error) {
-        // console.error("Error is", error)
-        setError(error.response?.data?.message); 
-        toast.error("Failed to get income")
+      // console.error("Error is", error)
+      setError(error.response?.data?.message);
+      toast.error("Failed to get income");
     }
-}
+  };
 
-const deleteIncome = async (id) => {
+  const deleteIncome = async (id) => {
     try {
-       await AxiosService.delete(`income/deleteincome/${id}`) 
-       toast.success("Income deleted Successfully")
-       setIncome(income.filter((item) => item._id !== id));
+      await AxiosService.delete(`income/deleteincome/${id}`);
+      toast.success("Income deleted Successfully");
+      setIncome(income.filter((item) => item._id !== id));
     } catch (error) {
-        setError(error.response.data.message); 
-        toast.error("Failed to delete income")
+      setError(error.response.data.message);
+      toast.error("Failed to delete income");
     }
-    
-}
+  };
 
-const totalIncome = () => {
+  const totalIncome = () => {
     let totalIncome = 0;
     income.forEach((income) => {
-        totalIncome = totalIncome + income.amount
-    })
+      totalIncome = totalIncome + income.amount;
+    });
 
     return totalIncome;
-}
-console.log(totalIncome());
+  };
+  console.log(totalIncome());
 
-// Expenses
-const addExpenses = async (expenses) => {
+  // Expenses
+  const addExpenses = async (expenses) => {
     try {
-      await AxiosService.post(`expenses/addexpenses`, expenses)
-    //   toast.success("Expenses added successfully")
+      await AxiosService.post(`expenses/addexpenses`, expenses);
+      //   toast.success("Expenses added successfully")
     } catch (error) {
-        setError(error.response.data.message); 
-        toast.error("Failed to add expense")
+      setError(error.response.data.message);
+      toast.error("Failed to add expense");
     }
-};
+  };
 
-const getExpenses = async () =>{
+  const getExpenses = async () => {
     try {
-        const res = await AxiosService.get(`expenses/getexpenses`);
-        const data = res.data.allExpenses;
-        setExpenses(Array.isArray(data) ? data : []);
+      const res = await AxiosService.get(`expenses/getexpenses`);
+      const data = res.data.allExpenses;
+      setExpenses(Array.isArray(data) ? data : []);
     } catch (error) {
-        setError(error.response.data.message); 
-        toast.error("Failed to get expense")
+      setError(error.response.data.message);
+      toast.error("Failed to get expense");
     }
-}
+  };
 
-const deleteExpenses = async (id) => {
+  const deleteExpenses = async (id) => {
     try {
-        await AxiosService.delete(`expenses/deleteexpenses/${id}`)
-        toast.success("Expenses deleted successfully")
-        setExpenses(expenses.filter((item) => item._id !== id));
+      await AxiosService.delete(`expenses/deleteexpenses/${id}`);
+      toast.success("Expenses deleted successfully");
+      setExpenses(expenses.filter((item) => item._id !== id));
     } catch (error) {
-        setError(error.response.data.message); 
-        toast.error("Failed to delete expense")
+      setError(error.response.data.message);
+      toast.error("Failed to delete expense");
     }
-}
+  };
 
-const totalExpenses = () => {
+  const totalExpenses = () => {
     let totalExpense = 0;
     expenses.forEach((expenses) => {
-        totalExpense = totalExpense + expenses.amount
-    })
+      totalExpense = totalExpense + expenses.amount;
+    });
 
     return totalExpense;
-}
-console.log(totalExpenses());
+  };
+  console.log(totalExpenses());
 
-const totalBalance = () => {
-    return totalIncome() - totalExpenses()
-}
+  const totalBalance = () => {
+    return totalIncome() - totalExpenses();
+  };
 
-  return <DataContext.Provider value={{
-    expenses,
-    setExpenses,
-    income,
-    setIncome,
-    error,
-    addIncome,
-    getIncome,
-    deleteIncome,
-    totalIncome,
-    addExpenses,
-    getExpenses,
-    deleteExpenses,
-    totalExpenses,
-    totalBalance
-
-    }}>
-        {children}
-    </DataContext.Provider>;
-}
+  return (
+    <DataContext.Provider
+      value={{
+        expenses,
+        setExpenses,
+        income,
+        setIncome,
+        error,
+        addIncome,
+        getIncome,
+        deleteIncome,
+        totalIncome,
+        addExpenses,
+        getExpenses,
+        deleteExpenses,
+        totalExpenses,
+        totalBalance,
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+};
 
 export const useGlobalContext = () => {
-    return useContext(DataContext)
-}
+  return useContext(DataContext);
+};
 
 export default Context;

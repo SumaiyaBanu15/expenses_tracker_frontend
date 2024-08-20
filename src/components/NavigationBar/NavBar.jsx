@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./navbarstyles.css";
 import { menuItems } from "../../utilis/MenuItems";
 import { logout } from "../../utilis/icons";
@@ -32,7 +32,7 @@ function NavBar({ active, setActive }) {
           </ul>
 
           <div className="bottom-nav">
-            <li onClick={() => navigate('/last')}>{logout} Sign Out</li>
+            <li onClick={() => navigate("/last")}>{logout} Sign Out</li>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@ function NavBar({ active, setActive }) {
 NavBar.propTypes = {
   active: PropTypes.number.isRequired,
   setActive: PropTypes.func.isRequired,
-}
+};
 //  The PropTypes library is used to define the expected types of props that a component should receive. This helps with type checking during development
 
 export default NavBar;
